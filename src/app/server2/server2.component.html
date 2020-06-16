@@ -1,0 +1,4 @@
+<!-- <p class="alert" [class]='isonline?"alert-success":"alert-danger"' role="alert">server1 {{isonline?'Online':'Offline'}}!</p> -->
+<!-- <p class="alert" [ngStyle]="{backgroundColor:!isonline?'red':'green'}" role="alert">server1 {{isonline?'Online':'Offline'}}!</p> -->
+<p class="alert" [ngClass]="{'alert-success':isonline,'alert-danger':!isonline}" role="alert">server1 {{isonline?'Online':'Offline'}}!</p>
+<!-- <button class="btn btn-primary" [disabled]="buttonDisable">Server on</button> -->

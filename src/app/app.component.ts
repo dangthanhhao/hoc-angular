@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-learning';
-  name='hao'
+  name = 'hao'
+  onInput(event: Event) {
+    this.name= (<HTMLInputElement>event.target).value;
+  }
 }

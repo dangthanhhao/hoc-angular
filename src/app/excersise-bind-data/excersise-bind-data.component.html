@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+    <div class="col-12">
+        <label for="input-username">Username</label>
+        <input type="text" id="input-username" class="form-control" [(ngModel)]='username'>
+        <p>Hello {{username}}</p>
+        <button class="btn btn-danger" (click)='onResetName()' [disabled]='!(username)'>Reset</button>
+    </div>
+</div>
+</div>

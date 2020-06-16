@@ -1,5 +1,14 @@
-<h1>This is {{title}} </h1>
-
-<h2>Hello {{name}}</h2>
-<input type="text" > <hr>
-<app-servers></app-servers>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <h1>This is {{title}} </h1>
+            <p>Hello {{name}}</p>
+            <label for="input-server-one-way-bind" >One way binding</label>
+        <input type="text" class="form-control" id="input-server-one-way-bind" (input)='onInput($event)'>
+        <label for="input-server-two-ways-bind" >Two ways binding</label>
+        <input type="text" class="form-control" id="input-server-two-ways-bind" [(ngModel)]='name'>
+            <hr>
+            <app-server></app-server>
+        </div>
+    </div>
+</div>
