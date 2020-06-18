@@ -8,9 +8,9 @@
                 Display Details
             </button>
             <p *ngIf='displayPassword'>Secret Password = 'tuna'</p>
-            <p *ngFor='let item of logStrings'
-                [ngStyle]="{'background-color':(logStrings.indexOf(item)>3)?'blue':''}"
-                [ngClass]='(logStrings.indexOf(item)>3)?"white-text":""'>
+            <p *ngFor='let item of logStrings, let i=index'
+                [ngStyle]="{'background-color':(i>3)?'blue':''}"
+                [ngClass]='(i>3)?"white-text":""'>
 
                 {{item}}
             </p>
