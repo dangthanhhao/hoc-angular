@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic consequatur atque veritatis recusandae
+                aperiam suscipit, corrupti neque cupiditate laudantium? Officia quae tempore commodi, quidem a enim
+                adipisci libero. Voluptates, sed!</p>
+            <button class="btn btn-primary" (click)='onDisplayPassword()'>
+                Display Details
+            </button>
+            <p *ngIf='displayPassword'>Secret Password = 'tuna'</p>
+            <p *ngFor='let item of logStrings'
+                [ngStyle]="{'background-color':(logStrings.indexOf(item)>3)?'blue':''}"
+                [ngClass]='(logStrings.indexOf(item)>3)?"white-text":""'>
+
+                {{item}}
+            </p>
+        </div>
+    </div>
+</div>
