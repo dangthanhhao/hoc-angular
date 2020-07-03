@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,9 +8,12 @@ import { UserService } from '../services/user.service';
 })
 export class ActiveUserComponent implements OnInit {
 
+  @Input() user:string;
   constructor(public data:UserService) { }
 
   ngOnInit(): void {
   }
-  
+  onInactive(user){
+    this.data.onChangeStatus(user);
+  }
 }

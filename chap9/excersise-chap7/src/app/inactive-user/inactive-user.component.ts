@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-inactive-user',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InactiveUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(public data:UserService) { }
 
   ngOnInit(): void {
   }
-
+  onActive(user:string){
+    this.data.onChangeStatus(user);
+  }
 }

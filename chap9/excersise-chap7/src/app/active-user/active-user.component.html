@@ -1,13 +1,12 @@
 <h4>List active user</h4>
 <div class="list-group ">
-    <div *ngFor='let user of data.activeUsers' class="row" style=" box-sizing: border-box">
-    <a href="#" class="list-group-item list-group-item-action col-md-10" >
-        {{user}}
-    </a>
-    <div style="padding: 5px;" class="col-md-2">
-    <button class="btn btn-danger ">Inactive</button>
-</div>
+
+    <div href="#" class="list-group-item d-flex flex-row justify-content-between align-items-center" *ngFor='let user of data.activeUsers'>
+        <div>
+            {{user}}
+        </div>
+        <div style="padding: 5px; box-sizing: border-box; ;">
+            <button class="btn btn-outline-danger " (click)='onInactive(user)'>Inactive</button>
+        </div>
     </div>
-    
-    
 </div>

@@ -1,1 +1,12 @@
-<p>inactive-user works!</p>
+<h4>List inactive user</h4>
+<div class="list-group ">
+
+    <div href="#" class="list-group-item d-flex flex-row justify-content-between align-items-center" *ngFor='let user of data.inactiveUsers'>
+        <div>
+            {{user}}
+        </div>
+        <div style="padding: 5px; box-sizing: border-box; ;">
+            <button class="btn btn-outline-success btn-same-size" (click)='onActive(user)'>Active</button>
+        </div>
+    </div>
+</div>
