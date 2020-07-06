@@ -14,19 +14,13 @@ import { ServersService } from './servers/servers.service';
 
 import {Routes, RouterModule} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
-const appRoutes:Routes=[
-  {path:'users',component:UsersComponent, children:[
-    {path:':id/:name',component:UserComponent}
-  ]},
-  {path:'',component:HomeComponent},
-  {path:'servers',component:ServersComponent, children:[
-    {path:':id',component:ServerComponent},
-    {path:':id/edit',component:EditServerComponent}
-  ]},
-  {path:'not-found',component:PageNotFoundComponent},
-  {path:'**',redirectTo:'not-found'},
+import { AppRoutingModule } from './app-routing.module';
+import { Authentication } from './authentication.service';
+import { AppGuard } from './app-guard.service';
+import { AppDeactivatedGuard } from './servers/edit-server/can-deactivated-service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolve } from './servers/server/server-resolve.service';
 
-]
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +30,15 @@ const appRoutes:Routes=[
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService,Authentication,AppGuard,AppDeactivatedGuard,ServerResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
